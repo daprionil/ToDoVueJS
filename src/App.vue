@@ -37,11 +37,12 @@
 
          //If modeForm is true = editTask
          if(modeForm.value){
-            const newTask = {
+            const taskModified = {
                ...taskEdit,
                task: textForm.value.trim()
-            }
-            editTask(newTask);
+            };
+
+            editTask(taskModified);
          }
 
          //Reset all values in form
@@ -91,10 +92,18 @@
       //Change state of allTasks
       allTasks.value = [...allTasks.value, task];
    };
+
    //Edit task with new params of value
-   const editTask = (editTask) => {
-      
-   }
+   const editTask = (taskModified) => {
+      const idTaskModified = taskModified.taskId;
+
+      allTasks.value = allTasks.value.map((task) => {
+         if(idTaskModified === task.taskId){
+            return taskModified;
+         }
+         return task;
+      });
+   };
 
    //Change Finished property in one task
    const completeTask = (idTask) => {
