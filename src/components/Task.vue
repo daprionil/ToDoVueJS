@@ -5,7 +5,7 @@
     })
 </script>
 <template>
-    <li class="relative grid [grid-template-columns:.1fr_.7fr_.2fr] items-center space-x-3 group">
+    <li class="relative grid [grid-template-columns:.1fr_.7fr_.2fr] items-center p-2 space-x-3 group">
         <button v-on:click="$emit('completedChangeTask', task.taskId)" class="flex items-center justify-center w-5 h-5 font-bold transition duration-300 ease-in transform scale-100 bg-gray-300 rounded-sm shadow cursor-pointer group hover:scale-105">
             <span v-if="task.finished" class="font-extrabold text-green-600 ">&#10003;</span>
             <span v-else class="text-black transition duration-200 ease-out opacity-0 group-hover:opacity-70">&#10003;</span>

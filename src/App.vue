@@ -32,7 +32,6 @@
          //If modeForm is false = createTask
          if(!modeForm.value){
             addTask(textTask);
-            return;
          }
 
          //If modeForm is true = editTask
@@ -151,7 +150,7 @@
       </div>
       <div class="p-4 border-b-2 border-gray-300">
          <h1 class="text-xl font-bold">Tasks</h1>
-         <ul>
+         <ul class="[&>*:nth-child(even)]:bg-gray-200 space-y-2 [&>*:nth-child(even)]:bg-opacity-75">
             <Task
                v-if="!!allTasks.length"
                v-for="task of uncompletedTasks"
@@ -170,16 +169,18 @@
          v-if="!!allTasks.length"
          class="p-4 space-y-2">
          <h1 class="text-xl font-bold">Completed Task</h1>
-         <Task
-            v-if="!!tasksCompleted.length"
-            v-for="task of tasksCompleted"
-            @clickDeleteTask="deleteTask"
-            @completedChangeTask="completeTask"
-            @editTaskClick="changeModeToEditTask"
-            :key="task.taskId"
-            :task="task"
-         />
-         <Message v-else text-message="Anímate a terminar una de tus tareas"/>
+         <ul class="[&>*:nth-child(even)]:bg-gray-200 space-y-2 [&>*:nth-child(even)]:bg-opacity-75">
+            <Task
+               v-if="!!tasksCompleted.length"
+               v-for="task of tasksCompleted"
+               @clickDeleteTask="deleteTask"
+               @completedChangeTask="completeTask"
+               @editTaskClick="changeModeToEditTask"
+               :key="task.taskId"
+               :task="task"
+            />
+            <Message v-else text-message="Anímate a terminar una de tus tareas"/>
+         </ul>
       </div>
    </div>
 </template>
