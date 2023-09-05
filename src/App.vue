@@ -1,6 +1,7 @@
 <script setup>
    import { v4 as uuidv4 } from 'uuid';
    import { ref, watch, computed } from 'vue';
+   import { useHead } from '@vueuse/head';
 
    import Header from './components/Header.vue';
    import FormTasks from './components/FormTasks.vue';
@@ -8,6 +9,11 @@
    import Task from './components/Task.vue';
 
    import { getStorageValue, setStorageValue } from './utils/storage';
+
+   const titleApp = ref('Mininotes App');
+   useHead({
+      title:titleApp
+   });
 
    const NAME_STORAGE_TASK = 'storage_tasks';
 
