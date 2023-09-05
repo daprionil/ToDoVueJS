@@ -1,7 +1,8 @@
 <script setup>
   const props = defineProps({
     textForm: String,
-    handleChangeText: Function
+    handleChangeText: Function,
+    modeForm: Boolean
   });
 
 </script>
@@ -18,7 +19,10 @@
             class="flex items-center justify-center w-10 h-8 transition duration-200 transform bg-gray-300 rounded-sm shadow hover:scale-105"
             type="submit"
           >
-            <span class="font-bold text-white drop-shadow">+</span>
+            <span class="font-bold text-white drop-shadow">
+              <font-awesome-icon class="text-blue-500" title="Confirmar Edición" v-if="modeForm" :icon="['fas','file-pen']"/>
+              <strong v-else>+</strong>
+            </span>
           </button>
         </label>
       </form>
